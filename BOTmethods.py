@@ -1,5 +1,4 @@
 import datetime
-from gtts import gTTS
 from Battons import *
 from database import DataBase
 
