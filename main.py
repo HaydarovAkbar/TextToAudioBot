@@ -8,7 +8,7 @@ from telegram.ext import Updater,CommandHandler
 from telegram.ext import MessageHandler,Filters
 from BOTmethods import *
 
-Token = "1466245327:AAHzxamD8vCKcdxfghsbsrxMLfID3C8IHTI"
+Token = "14662..."
 
 updater = Updater(Token, use_context=True)
 dispatcher = updater.dispatcher
