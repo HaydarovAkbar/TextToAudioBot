@@ -1,5 +1,5 @@
 import datetime
-# from gtts import gTTs
+from gtts import gTTS
 from Battons import *
 from database import DataBase
 
@@ -11,14 +11,14 @@ db = DataBase()
 def russ(update,context):
     text = update.message.text
     tts = gTTS(text=text, lang="ru",slow="False")
-    tts.sav("Russ.mp3")
+    tts.save("Russ.mp3")
     context.bot.send_audio(chat_id=update.effective_chat.id, audio=open("D:\Zako_New_project\TextAudioBOT\Russ.mp3","rb"),
                            reply_markup=backBattton)
 
 def ingliz(update,context):
     text = update.message.text
     tts = gTTS(text=text, lang="en",slow="False")
-    tts.sav("Ingliz.mp3")
+    tts.save("Ingliz.mp3")
     context.bot.send_audio(chat_id=update.effective_chat.id, audio=open("D:\Zako_New_project\TextAudioBOT\Ingliz.mp3","rb"),
                            reply_markup=backBattton)
 def ovoz(update,context):
