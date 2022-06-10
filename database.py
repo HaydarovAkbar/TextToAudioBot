@@ -1,36 +1,65 @@
-import sqlite3
+from sqlite3 import connect
+database_d = "users.db"
 
-base = "database.db"
-class DataBase:
-    def getBaseID(self,id):  # id bazada bormi yoki yuq shuni tekshirishda yordam beradi
+class Database:
+    def get_data(self):
         try:
-            connation = sqlite3.connect(base)
+            connation = connect(database_d)
             cursor = connation.cursor()
-            cursor.execute(f"SELECT * FROM main WHERE userID = {id}")
+            cursor.execute("SELECT (userID) FROM data")
             a = cursor.fetchall()
             return a
         except Exception as e:
             print(e)
-    def getBasa(self):    # Bazadagi barcha malumotlarni olish
+    def set(self,name,username,userID,lang="en"):
         try:
-            connation = sqlite3.connect(base)
+            connection = connect(database_d)
+            cursor = connection.cursor()
+            cursor.execute(f'INSERT INTO data(name,username,userID,language) VALUES("{name}","{username}",{userID},"{lang}")')
+            connection.commit()
+            connection.close()
+        except Exception as e:
+            print(e)
+    def get_user_50(self):
+        try:
+            connation = connect(database_d)
             cursor = connation.cursor()
-            cursor.execute("SELECT * FROM main")
-            return cursor.fetchall()
-
+            cursor.execute("SELECT * FROM data")
+            a = cursor.fetchall()[-50:]
+            return a
         except Exception as e:
             print(e)
 
-    def setBase(self,userN,firstN,date,ID):
+    def get_user(self):
         try:
-            connation = sqlite3.connect(base)
+            connation = connect(database_d)
             cursor = connation.cursor()
-            cursor.execute(f"INSERT INTO main(user_name,first_name,date,userID) VALUES('{userN}','{firstN}','{date}',{ID})")
+            cursor.execute("SELECT * FROM data")
+            a = cursor.fetchall()
+            return a
+        except Exception as e:
+            print(e)
+
+    def get_user_id(self,id):
+        try:
+            connation = connect(database_d)
+            cursor = connation.cursor()
+            cursor.execute(f"SELECT * FROM data WHERE userID = {id}")
+            a = cursor.fetchone()
+            return a
+        except Exception as e:
+            print(e)
+    def update_user_lang(self,id,lang):
+        try:
+            connation = connect(database_d)
+            cursor = connation.cursor()
+            cursor.execute(f"UPDATE data SET language='{lang}' WHERE userID = {id}")
             connation.commit()
             connation.close()
+            return True
         except Exception as e:
             print(e)
 
 if __name__ == '__main__':
-    d = DataBase()
-    d.setBase("askjd","asdkjnas","sdnja",123)
+    db = Database()
+    print(db.get_user())
