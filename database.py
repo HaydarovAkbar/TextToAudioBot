@@ -4,7 +4,8 @@ database_d = "users.db"
 
 
 class Database:
-    def get_data(self):
+    @staticmethod
+    def get_data():
         try:
             connation = connect(database_d)
             cursor = connation.cursor()
@@ -14,7 +15,8 @@ class Database:
         except Exception as e:
             print(e)
 
-    def set(self, name, username, userID, lang="en"):
+    @staticmethod
+    def set(name, username, userID, lang="en"):
         try:
             connection = connect(database_d)
             cursor = connection.cursor()
