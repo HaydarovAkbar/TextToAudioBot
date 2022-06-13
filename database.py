@@ -1,5 +1,7 @@
 from sqlite3 import connect
+
 database_d = "users.db"
+
 
 class Database:
     def get_data(self):
@@ -11,15 +13,18 @@ class Database:
             return a
         except Exception as e:
             print(e)
-    def set(self,name,username,userID,lang="en"):
+
+    def set(self, name, username, userID, lang="en"):
         try:
             connection = connect(database_d)
             cursor = connection.cursor()
-            cursor.execute(f'INSERT INTO data(name,username,userID,language) VALUES("{name}","{username}",{userID},"{lang}")')
+            cursor.execute(
+                f'INSERT INTO data(name,username,userID,language) VALUES("{name}","{username}",{userID},"{lang}")')
             connection.commit()
             connection.close()
         except Exception as e:
             print(e)
+
     def get_user_50(self):
         try:
             connation = connect(database_d)
@@ -40,7 +45,7 @@ class Database:
         except Exception as e:
             print(e)
 
-    def get_user_id(self,id):
+    def get_user_id(self, id):
         try:
             connation = connect(database_d)
             cursor = connation.cursor()
@@ -49,7 +54,8 @@ class Database:
             return a
         except Exception as e:
             print(e)
-    def update_user_lang(self,id,lang):
+
+    def update_user_lang(self, id, lang):
         try:
             connation = connect(database_d)
             cursor = connation.cursor()
@@ -59,6 +65,7 @@ class Database:
             return True
         except Exception as e:
             print(e)
+
 
 if __name__ == '__main__':
     db = Database()

@@ -1,20 +1,19 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from database import Database
 
-
 dbs = Database()
 
 sonlar = {
-    '0' : "0️⃣",
-    '1' : "1️⃣",
-    '2' : "2️⃣",
-    '3' : "3️⃣",
-    '4' : "4️⃣",
-    '5' : "5️⃣",
-    '6' : "6️⃣",
-    '7' : "7️⃣",
-    '8' : "8️⃣",
-    '9' : "9️⃣",
+    '0': "0️⃣",
+    '1': "1️⃣",
+    '2': "2️⃣",
+    '3': "3️⃣",
+    '4': "4️⃣",
+    '5': "5️⃣",
+    '6': "6️⃣",
+    '7': "7️⃣",
+    '8': "8️⃣",
+    '9': "9️⃣",
 }
 
 # Bot TOKEN
@@ -90,50 +89,50 @@ all_lang = {
     "French": "fr",
     "German": "de",
     "Hindi": "hi",
-    "Gujarati":"gu",
-    "Tamil":"ta",
+    "Gujarati": "gu",
+    "Tamil": "ta",
     "Indonesia": "id",
     "Italy": 'it',
     "Japanese": "ja",
     "Korean": "ko",
-    "Norwegian":"nb",
+    "Norwegian": "nb",
     "Turkish": 'tr',
     "China": "zh-CN",
-    "Arabic":"ar",
-    "Kannada":"kn",
-    "Malaysia":"ms",
-    "Chinese":"zh-CN",
+    "Arabic": "ar",
+    "Kannada": "kn",
+    "Malaysia": "ms",
+    "Chinese": "zh-CN",
 }
 # "Uzbekistan": "uz",
 
 admin_batton = ReplyKeyboardMarkup([
-    ["🤖 Bot Foydalanuvchilari 🤖","👨🏻‍💻 Userga javob 👨🏻‍💻"],
-    ["❇️ Reklama 🌉","orqaga"],
-],resize_keyboard=True)
+    ["🤖 Bot Foydalanuvchilari 🤖", "👨🏻‍💻 Userga javob 👨🏻‍💻"],
+    ["❇️ Reklama 🌉", "orqaga"],
+], resize_keyboard=True)
 
 til = {
     "uz": "siz o'zbek tilini tanladingiz endi siz o'zbek tilida so'z kiritishingiz mumkin",
     "ru": "вы выбрали русском языке, теперь вы можете вводить слова на русском языке",
     "en": "you have chosen English, now you can enter a word in English",
-    "boshqa":["You have selected ",", you can enter words in the language you specify"]
+    "boshqa": ["You have selected ", ", you can enter words in the language you specify"]
 }
 
 comment_text = {
-    "uz":"Bot haqida takliflar yoki murojaatlarni yuborishingiz mumkin, Biz uni albatta ko'rib chiqamiz",
-    "ru":"Вы можете присылать предложения или отзывы о боте, мы обязательно рассмотрим",
+    "uz": "Bot haqida takliflar yoki murojaatlarni yuborishingiz mumkin, Biz uni albatta ko'rib chiqamiz",
+    "ru": "Вы можете присылать предложения или отзывы о боте, мы обязательно рассмотрим",
 }
 send_comment_text = {
-    "uz":"Xabaringiz dasturchiga yubirildi😊\nOrqaga qaytish tugmasini bosishingiz mumkin!",
-    "ru":"Ваше сообщение отправлено программисту😊 \nВы можете нажать кнопку Назад!",
+    "uz": "Xabaringiz dasturchiga yubirildi😊\nOrqaga qaytish tugmasini bosishingiz mumkin!",
+    "ru": "Ваше сообщение отправлено программисту😊 \nВы можете нажать кнопку Назад!",
 }
 back = {
-    "uz":"orqaga",
-    "ru":"назад"
+    "uz": "orqaga",
+    "ru": "назад"
 }
 
 back_text = {
-    "uz":"Davom etamiz!!!",
-    "ru":"Давай продолжим !!!"
+    "uz": "Davom etamiz!!!",
+    "ru": "Давай продолжим !!!"
 }
 
 batton_ = {
@@ -141,6 +140,8 @@ batton_ = {
     'ru': ["Сменить язык", "Комментарий", "О боте"],
     'en': ["Change language", "Comment", "About bot"]
 }
+
+
 def bot_about_function(lang='en'):
     users_count_ = str(len(dbs.get_data()))
     user_count = ""
@@ -148,11 +149,12 @@ def bot_about_function(lang='en'):
     for i in users_count_:
         user_count += sonlar.get(i)
     bot_about_text = {
-        "uz":f"🤖 Text To Audio Bot\n\n🔹 Foydalanuvchilar soni: {user_count}\n 🔹Ishga tushirilgan vaqti: 25/05/2021\n🔹 Dasturchi: [Akbar](tg://user?id=758934089)",
-        "ru":f"🤖  Text To Audio Bot\n\n🔹 Количество пользователей: {user_count} \n🔹 Дата начала: 25/05/2021 \n🔹 Разработчик: [Akbar](tg://user?id=758934089)",
-        "en":f"🤖  Text To Audio Bot\n\n🔹 Number of Users: {user_count} \n🔹 Start Time: 25/05/2021 \n🔹 Developer: [Akbar](tg://user?id=758934089)"
+        "uz": f"🤖 Text To Audio Bot\n\n🔹 Foydalanuvchilar soni: {user_count}\n 🔹Ishga tushirilgan vaqti: 25/05/2021\n🔹 Dasturchi: [Akbar](tg://user?id=758934089)",
+        "ru": f"🤖  Text To Audio Bot\n\n🔹 Количество пользователей: {user_count} \n🔹 Дата начала: 25/05/2021 \n🔹 Разработчик: [Akbar](tg://user?id=758934089)",
+        "en": f"🤖  Text To Audio Bot\n\n🔹 Number of Users: {user_count} \n🔹 Start Time: 25/05/2021 \n🔹 Developer: [Akbar](tg://user?id=758934089)"
     }
     return bot_about_text.get(lang)
+
 
 def lang_batton():
     result, res = [], []
@@ -174,15 +176,18 @@ def edit_batton(lang):
         [dataa[2]]
     ], resize_keyboard=True)
     return batton
+
+
 def back_batton(lang):
-    dataa = back.get(lang,"back")
+    dataa = back.get(lang, "back")
     batton = ReplyKeyboardMarkup([
         [dataa],
     ], resize_keyboard=True)
     return batton
 
+
 wait_text = {
-    "uz":"<code>Bu biroz vaqt olishi mumkin iltimos kuting...🖐</code>",
-    "ru":"<code>Это может занять некоторое время, пожалуйста, пожалуйста... 🖐</code>",
-    'en':"<code>This may take some time please wait ... 🖐</code>"
+    "uz": "<code>Bu biroz vaqt olishi mumkin iltimos kuting...🖐</code>",
+    "ru": "<code>Это может занять некоторое время, пожалуйста, пожалуйста... 🖐</code>",
+    'en': "<code>This may take some time please wait ... 🖐</code>"
 }
