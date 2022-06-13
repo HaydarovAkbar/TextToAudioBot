@@ -1,7 +1,7 @@
 from telegram.ext import Updater, CallbackQueryHandler, Filters, CommandHandler, ConversationHandler, MessageHandler
 import timeit
 from methods import *
-from battons import *
+from Battons import *
 
 updater = Updater(Token, use_context=True, workers=1000)
 dispatcher = updater.dispatcher

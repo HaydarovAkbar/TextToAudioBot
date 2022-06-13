@@ -1,4 +1,4 @@
-from battons import *
+from Battons import *
 from database import Database
 from gtts import gTTS
 import docx2txt
